@@ -73,11 +73,26 @@ Compila y ejecuta el backend desde la IntelliJ IDEA o bien, podrías construir l
 ![img.png](img.png)
 - a) Dirigirse al ícono de gradle
 - b) Doble click sobre *build*
-2. Ejecutar los comando de Docker para construir y correr el contenedor
+2. Ejecuta los comandos de Docker para construir y correr el contenedor
 ```sh
 docker build -t puntopay-backend .
 docker run -d -p 3000:3000 puntopay-backend
 ```
+
+**NOTA**: Cuando se ejecuta con Docker, no olvides especificar las variables de entorno ya sea por línea de comandos o através de la interfaz de Docker:
+- DATABASE_URL
+- DATABASE_USERNAME
+- DATABASE_PASSWORD
+- PUNTORED_ENDPOINT
+- PUNTORED_USUARIO_HOST
+- PUNTORED_CLAVE_HOST
+- PUNTORED_COMERCIO
+- PUNTORED_PUNTO_VENTA
+- PUNTORED_CLAVE_TRANSACCIONAL
+- PUNTORED_TERMINAL
+- CORS_ALLOWED_ORIGINS
+- CORS_METHODS
+- CORS_HEADERS
 
 La API estará disponible en `http://localhost:3000/`. Con esto ya podrás usar este enpoint para conectarla a tu cliente.
 La ruta de contexto es: `/puntored-transactional/api`
@@ -89,8 +104,10 @@ La ruta de contexto es: `/puntored-transactional/api`
 - **Buy Recharge**: *POST* `/recharge/buy`
 - **History Transactions**: *GET* `/transactions`
 
+## Documentación
+Puedes consultar cómo usar esta API a través de la documentación en Postman: https://documenter.getpostman.com/view/9408000/2sAYkGKK8w
+
 ## Contacto
 
 Desarrollado por **Omar Stiven Rivera Rocha**  
 **Ingeniero de Software**
-
