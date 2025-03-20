@@ -2,7 +2,7 @@
 
 ## Descripción del Proyecto
 
-PuntoPay es una API desarrollada en **Spring Boot** que se encarga de gestionar las transacciones de recargas móviles, compra de pines y operaciones bancarias consumiendo los servicios de **Puntored**.
+PuntoPay es una API desarrollada en **Spring Boot** mediante la arquitectura de Puertos y Adaptadores o Arquitectura Hexagonal. Esta API se encarga de gestionar las transacciones de recargas móviles, compra de pines y operaciones bancarias consumiendo los servicios de **Puntored**.
 
 Esta API maneja la autenticación, validaciones de transacciones y almacenamiento de datos en una base de datos MySQL.
 
@@ -32,9 +32,8 @@ Antes de ejecutar el backend, asegúrate de tener:
 ### 1. Clonar el repositorio y abrir en IntelliJ IDEA
 ```sh
 git clone https://github.com/stiven4950/puntopay-backend.git
-cd puntopay-backend
 ```
-Luego, ir a la IDE IntelliJ IDEA y seleccionar en **abrir**. Finalmente buscar el archivo *build.gradle* y seleccionar que se desea abrir como un proyecto. Finalmente, esperar a que se instalen las dependencias.
+Luego, ir a la IDE IntelliJ IDEA y selecciona **File** y **abrir**. Busca en la carpeta raíz del proyecto el archivo *build.gradle* y selecciona **abrir como un proyecto**. Finalmente, espera a que se instalen las dependencias.
 
 ### 2. Configurar variables de entorno
 Crea una base de datos en MySQL y asegúrete de configurar el archivo `application.properties` con las credenciales correctas:
