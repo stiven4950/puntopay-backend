@@ -24,7 +24,6 @@ Esta API maneja la autenticación, validaciones de transacciones y almacenamient
 Antes de ejecutar el backend, asegúrate de tener:
 
 - **JDK 17** o superior.
-- **Maven** instalado y configurado.
 - **MySQL** como base de datos.
 - **Spring Boot 3.4.3**.
 
@@ -60,6 +59,10 @@ puntored.claveTransaccional=tu_clave
 puntored.terminal=la_terminal
 
 eureka.client.enabled=false
+
+cors.allowed.origins=http://localhost:4200
+cors.allowed.methods=GET,POST,PUT,DELETE
+cors.allowed.headers=*
 ```
 
 ### 3. Construir y ejecutar la API
