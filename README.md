@@ -29,13 +29,14 @@ Antes de ejecutar el backend, asegúrate de tener:
 
 ## Instalación y Ejecución
 
-### 1. Clonar el repositorio
+### 1. Clonar el repositorio y abrir en IntelliJ IDEA
 ```sh
 git clone https://github.com/stiven4950/puntopay-backend.git
 cd puntopay-backend
 ```
+Luego, ir a la IDE IntelliJ IDEA y seleccionar en **abrir**. Finalmente buscar el archivo *build.gradle* y seleccionar que se desea abrir como un proyecto. Finalmente, esperar a que se instalen las dependencias.
 
-### 2. Configurar la base de datos
+### 2. Configurar variables de entorno
 Crea una base de datos en MySQL y asegúrete de configurar el archivo `application.properties` con las credenciales correctas:
 ```properties
 spring.application.name=api-transaccional
@@ -67,12 +68,26 @@ cors.allowed.headers=*
 
 ### 3. Construir y ejecutar la API
 
-Compila y ejecuta el backend con:
+Compila y ejecuta el backend desde la IntelliJ IDEA o bien, podrías construir la imagen Docker con:
+1. Entra a las opciones gradle de tu proyecto desde IntelliJ IDEA
+![img.png](img.png)
+- a) Dirigirse al ícono de gradle
+- b) Doble click sobre *build*
+2. Ejecutar los comando de Docker para construir y correr el contenedor
 ```sh
-mvn clean install
-mvn spring-boot:run
+docker build -t puntopay-backend .
+docker run -d -p 3000:3000 puntopay-backend
 ```
-La API estará disponible en `http://localhost:3000/`.
+
+La API estará disponible en `http://localhost:3000/`. Con esto ya podrás usar este enpoint para conectarla a tu cliente.
+La ruta de contexto es: `/puntored-transactional/api`
+
+## Rutas:
+- **Login**: *POST* `/auth/login`
+- **Registration User**: *POST* `/user/registration`
+- **List Suppliers**: *GET* `/recharge/suppliers`
+- **Buy Recharge**: *POST* `/recharge/buy`
+- **History Transactions**: *GET* `/transactions`
 
 ## Contacto
 
