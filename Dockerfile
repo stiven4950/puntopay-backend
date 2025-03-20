@@ -2,8 +2,8 @@ FROM openjdk:17-jdk-alpine
 
 WORKDIR /app
 
-COPY build/libs/torrefactora-1.0.jar app.jar
+COPY build/libs/*-SNAPSHOT.jar app.jar
 
-EXPOSE 8080
+EXPOSE 3000
 
 CMD ["java", "-jar","-Dspring.profiles.active=pdn", "app.jar"]

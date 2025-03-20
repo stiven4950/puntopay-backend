@@ -1,5 +1,6 @@
 package com.stiven4950.puntored.api_transaccional.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.cors.CorsConfiguration;
@@ -10,13 +11,23 @@ import java.util.Arrays;
 
 @Configuration
 public class CorsConfig {
+
+    @Value("${cors.allowed.origins}")
+    private String allowedOrigins;
+
+    @Value("${cors.allowed.methods}")
+    private String allowedMethods;
+
+    @Value("${cors.allowed.headers}")
+    private String allowedHeaders;
+
     @Bean
-    CorsConfigurationSource corsConfigurationSource(){
+    CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration corsConfiguration = new CorsConfiguration();
 
-        corsConfiguration.setAllowedOrigins(Arrays.asList("http://localhost:4200"));
-        corsConfiguration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE"));
-        corsConfiguration.setAllowedHeaders(Arrays.asList("*"));
+        corsConfiguration.setAllowedOrigins(Arrays.asList(allowedOrigins.split(",")));
+        corsConfiguration.setAllowedMethods(Arrays.asList(allowedMethods.split(",")));
+        corsConfiguration.setAllowedHeaders(Arrays.asList(allowedHeaders.split(",")));
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", corsConfiguration);
